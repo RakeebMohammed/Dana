@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { AuthShell } from "../gate/page";
+import { AuthShell } from "@/app/components/AuthShell";
 
 export default function VerifyPage() {
   const router = useRouter(); const email = useSearchParams().get("email") || "";
