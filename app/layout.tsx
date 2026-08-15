@@ -1,0 +1,16 @@
+import "./globals.css";
+
+export const metadata = {
+  title: "Popin",
+  description: "www.popin.to",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif", background: "#0b0b0f", color: "#f2f2f5" }}>
+        {children}
+      </body>
+    </html>
+  );
+}
