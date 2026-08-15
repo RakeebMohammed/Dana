@@ -4,6 +4,8 @@ import { useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AuthShell } from "@/app/components/AuthShell";
 
+export const dynamic = "force-dynamic";
+
 export default function VerifyPage() {
   const router = useRouter(); const email = useSearchParams().get("email") || "";
   const [digits, setDigits] = useState<string[]>(Array(6).fill("")); const [loading, setLoading] = useState(false); const [error, setError] = useState<string | null>(null);
