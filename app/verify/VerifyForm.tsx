@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AuthShell } from "@/app/components/AuthShell";
-import ThemeToggle from "@/app/ThemeToggle";
 
 export function VerifyForm() {
   const router = useRouter();
@@ -56,14 +55,12 @@ export function VerifyForm() {
   }
 
   return (
-    <>
-      <ThemeToggle />
-      <AuthShell
-        eyebrow="STEP 2 OF 2"
-        title={<>Check your<br />inbox.</>}
-        text={`We sent a six-digit code to ${email || "your email address"}.`}
-      >
-        <form onSubmit={handleSubmit} className="auth-form">
+    <AuthShell
+      eyebrow="STEP 2 OF 2"
+      title={<>Check your<br />inbox.</>}
+      text={`We sent a six-digit code to ${email || "your email address"}.`}
+    >
+      <form onSubmit={handleSubmit} className="auth-form">
         <fieldset className="otp-fieldset">
           <legend>Verification code</legend>
           <div className="otp-group">
@@ -103,6 +100,5 @@ export function VerifyForm() {
         </button>
       </form>
     </AuthShell>
-    </>
   );
 }

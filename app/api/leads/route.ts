@@ -18,15 +18,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Name is required." }, { status: 400 });
     }
 
-    if (typeof phone !== "string" || phone.trim().length < 7) {
-      return NextResponse.json({ error: "Please enter a valid phone number." }, { status: 400 });
-    }
-
     const db = await getDb();
     await db.collection("leads").insertOne({
       email: session.email,
       name: name.trim(),
-      phone: phone.trim(),
+      phone: phone ?? null,
       message: message ?? null,
       created_at: new Date(),
     });
